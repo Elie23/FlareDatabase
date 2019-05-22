@@ -1,0 +1,10 @@
+May 22nd:
+
+I think I will make a table with some info (to be determined) about each XVP/Post-XVP flare
+
+I still need to figure out how to add download links pointing to a github repository. Otherwise, I will
+put the files to be downloaded in the same folder as the html code. The problem with that is version control
+
+Once this is done, I will push the html code to my mcgill physics domain
+
+Guillochon did something much more complex, but this is the basic idea behind it
