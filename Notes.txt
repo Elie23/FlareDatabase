@@ -8,3 +8,8 @@ put the files to be downloaded in the same folder as the html code. The problem 
 Once this is done, I will push the html code to my mcgill physics domain
 
 Guillochon did something much more complex, but this is the basic idea behind it
+
+
+May 27th
+
+Guillochon used https://datatables.net/download/index to make his table. His download links point to his website, not github. He must update the website manually every time something changes on github. I should use the datatables thing too since it allows the table to be interactive (like searching for stuff) which will be necessary in the long run.
