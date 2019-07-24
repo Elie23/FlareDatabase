@@ -1,5 +1,5 @@
 HTML table of Sgr A* flares. 
 
-For each flare, we show the ObsID, the date of the observation, the instrument mode, the exposure (the total lenght of each Bayesian Blocks), the quiescent count rate, the start and the end of the flare in MJD, the flare duration, the flare mean count rate (pile-up corrected using Equation 3 of "The Chandra ABC Guide to Pileup"), the peak count rate obtained with 300s bins (is inacurate for flare durations comparable to the bin width) and the emitted energy in units of 10^37 erg. 
+For each flare, we show the ObsID, the date of the observation, the instrument mode, the exposure (the total lenght of each Bayesian Blocks), the quiescent count rate, the start and the end of the flare in MJD, the flare duration, the flare mean count rate (pile-up corrected using Equation 3 of "The Chandra ABC Guide to Pileup"), the peak count rate obtained with 300s bins (is inaccurate for flare durations comparable to the bin width) and the emitted energy in units of 10^37 erg. 
 
 We also provide download links for the fits files and the plots of the light curves.
