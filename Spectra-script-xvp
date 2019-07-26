@@ -1,0 +1,24 @@
+#!/bin/bash
+
+cd /home/elie/Documents/Project/XVP-data/gratings/Raw_data/
+for f in */
+do 
+	echo ${f:0:5} 
+	pwd
+	mkdir /home/elie/Documents/WebSite/Spectra/XVP/${f:0:5}/
+	cp ${f:0:5}/${f:0:5}_0th_spec.pi /home/elie/Documents/WebSite/Spectra/XVP/${f:0:5}/
+	cp ${f:0:5}/${f:0:5}_0th_spec.rmf /home/elie/Documents/WebSite/Spectra/XVP/${f:0:5}/
+	cp ${f:0:5}/${f:0:5}_0th_spec.corr.arf /home/elie/Documents/WebSite/Spectra/XVP/${f:0:5}/
+
+	cp ${f:0:5}/${f:0:5}combine_spectra_meg_abs1.pha /home/elie/Documents/WebSite/Spectra/XVP/${f:0:5}/
+	cp ${f:0:5}/${f:0:5}combine_spectra_meg_abs1_bkg.pha /home/elie/Documents/WebSite/Spectra/XVP/${f:0:5}/
+	cp ${f:0:5}/${f:0:5}combine_spectra_meg_abs1.rmf /home/elie/Documents/WebSite/Spectra/XVP/${f:0:5}/
+	cp ${f:0:5}/${f:0:5}combine_spectra_meg_abs1.arf /home/elie/Documents/WebSite/Spectra/XVP/${f:0:5}/
+
+	cp ${f:0:5}/${f:0:5}combine_spectra_heg_abs1.pha /home/elie/Documents/WebSite/Spectra/XVP/${f:0:5}/
+	cp ${f:0:5}/${f:0:5}combine_spectra_heg_abs1_bkg.pha /home/elie/Documents/WebSite/Spectra/XVP/${f:0:5}/
+	cp ${f:0:5}/${f:0:5}combine_spectra_heg_abs1.rmf /home/elie/Documents/WebSite/Spectra/XVP/${f:0:5}/
+	cp ${f:0:5}/${f:0:5}combine_spectra_heg_abs1.arf /home/elie/Documents/WebSite/Spectra/XVP/${f:0:5}/
+done
+
+
