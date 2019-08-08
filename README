@@ -1,7 +1,9 @@
 HTML table of Sgr A* flares. 
 
-For each flare, we show the ObsID, the date of the observation, the instrument mode, the exposure (the total lenght of each Bayesian Blocks), the quiescent count rate, the start and the end of the flare in MJD, the flare duration, the flare mean count rate (pile-up corrected using Equation 3 of "The Chandra ABC Guide to Pileup"), the peak count rate obtained with 300s bins (is inaccurate for flare durations less than and up to a few times the bin width) and the emitted energy (pile-up corrected and quiescence subtraced) in units of 10^37 erg. 
+For each Chandra flare, we show the ObsID, the date of the start of the observation, the instrument mode, the exposure (the total lenght of each Bayesian Block), the quiescent count rate, the start and the end of the flare in MJD, the flare duration, the flare mean count rate (pile-up corrected using Equation 3 of "The Chandra ABC Guide to Pileup"), the peak count rate obtained with 300s bins (is inaccurate for flare durations less than and up to a few times the bin width) and the emitted energy (pile-up corrected and quiescence subtraced) in units of 10^37 erg. All count rates are 2-8 keV and the emitted energies are from 2-10 keV. Sgr A*'s extraction region is a small 1.25" radius circular region centered around the radio position of Sgr A* (17h45m40.04909s, -29◦00’28.118").
 
 We also provide download links for the fits files and the plots of the light curves. Finally, we include spectra files for all observations. For gratings observations, we provide 0th order and +/- 1st order (for both MEG and HEG) spectra files (.pi, .arf and .rmf).
 
 For ACIS-I observations, several observations are omitted here due to their low exposure causing inaccuracies in source localisations (ObsIDs 6642, 6113, 6643, 6644, 7556, 7558, 7559).
+
+Detailed instructions to add more flares to the Table are provided in the "HowToAddFlares.txt" file.
