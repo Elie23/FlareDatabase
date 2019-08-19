@@ -17,7 +17,17 @@ td, th {
 </style>
 </head>
 <body>
-Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> repository to see all the event files and light curves, including those from observations whihout flares. We have observations from 2000 up to 2018. We also provide spectra files for each observation.
+Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> repository to see all the event files and light curves, including those from observations whihout flares. We have observations from 2000 up to 2018. We also provide spectra files for each observation. The following dropdown allows to select flares from specific works: <select id="mylist" onchange="myFunction2()" class='form-control'>
+<option>Bouffard</option>
+<option>Neilsen</option>
+<option>Ponti</option>
+<option>Mossoux</option>
+</select>
+
+<br />Please note that flares before 2012 reported to be from Bouffard et al. (2019) are actually not in that paper; they were obtained via the same method, however. All the included files are from these authors as well, such that if a flare was reported by a different author, the files are likely not on the github repository (this is subject to change). 
+<br />Different authors may have reduced the data differently and used different methods to detect/characterize flares.
+<br />Different authors may report different flare properties, such that some columns are used only by some authors.
+<br /><font color="red">Ponti et al. (2015)</font> report values for each flare blocks. In an effort to make it clearer in this table, each flare reported by these authors made of multiple blocks is isolated by red dotted lines. These authors also used 0th order events only in gratings observations whereas the other authors used 0th + 1st order counts.
 
 <h2>Sgr A* Flare Table</h2>
 
@@ -26,23 +36,28 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
 
 <table id="myTable">
   <tr style="border-top: 1px solid">
+    <th>Authors</th>
     <th>ObsID</th>
     <th>Date</th>
     <th>Instrument mode</th>
     <th>Exposure</th>
     <th>Quiescent count rate</th>
-    <th>Fstart</th>
-    <th>Fend</th>
+    <th>Fstart*</th>
+    <th>Fend*</th>
     <th>Duration</th>
-    <th>Mean count rate</th>
-    <th>Peak count rate*</th>
+    <th>Count rate**</th>
+    <th>Peak count rate***</th>
     <th>Emitted energy</th> 
+    <th>Flux</th>
+    <th>Fluence</th>
+    <th>Luminosity</th>
     <th>Event list</th> 
     <th>Light curve</th>
     <th>Flags</th>
   </tr>
   <tr style="border-bottom: 1px solid">
-  	<td></td>
+    <td></td>
+    <td></td>
     <td></td>
     <td></td>
     <td>ks</td>
@@ -53,13 +68,38 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>ct/s</td>
     <td>ct/s</td>
     <td>10<sup>37</sup> erg</td>
+    <td>10<sup>-12</sup> erg s<sup>-1</sup> cm<sup>-2</sup></td>
+    <td>10<sup>-9</sup> erg cm<sup>-2</sup> or ct</td>
+    <td>10<sup>34</sup> erg/s</td>
     <td></td>
     <td></td>
     <td></td>
   </tr>
 
   <tr>
-  	<td>1561</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>242</td>
+    <td>1999-09-21</td>
+    <td>ACIS-I3</td>
+    <td>46.5</td>
+    <td>4.8 &plusmn 0.1</td>
+    <td>51442.112</td>
+    <td>51442.174</td>
+    <td>5374</td>
+    <td>0.004 &plusmn 0.001</td>
+    <td>-</td>
+    <td>-</td>
+    <td>1.30</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>1561</td>
     <td>2000-10-26</td>
     <td>ACIS-I3</td>
     <td>48.8</td>
@@ -70,13 +110,38 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.035 &plusmn 0.007</td>
     <td>0.033 &plusmn 0.002</td>
     <td>1.52</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/ACIS-I/1561_000_SgrA_2-8keV_wcs_evt.fits" download>1561SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/ACIS-I/ACIS-I_1561000-start-1stevent-GoodBins.pdf"download>1561 light curve</a></td>
   <td>4.p</td>  
   </tr>
 
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>1561</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.9 &plusmn 0.8</td>
+    <td>52209.109</td>
+    <td>52209.116</td>
+    <td>585</td>
+    <td>0.030 &plusmn 0.014</td>
+    <td>-</td>
+    <td>-</td>
+    <td>3.52</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>1561</td>
     <td></td>
     <td></td>
     <td></td>
@@ -87,13 +152,122 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.076 &plusmn 0.003</td>
     <td>0.160 &plusmn 0.009</td>
     <td>57.45</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td></td>
     <td></td>
-    <td>4.p</td>
+    <td>4.p, A</td>
   </tr>
 
   <tr>
-  	<td>3663</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>1561</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>52209.164</td>
+    <td>52209.282</td>
+    <td>10335</td>
+    <td>0.110 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>11.5</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr style="border-top: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>1561</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>51844.1035</td>
+    <td>51844.2055</td>
+    <td>8810.6</td>
+    <td>0.020 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p, A</td>
+  </tr>
+  
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>1561</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>51844.2055</td>
+    <td>51844.2444</td>
+    <td>3360.9</td>
+    <td>0.14 &plusmn 0.02</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p, A</td>
+  </tr>
+
+  <tr style="border-bottom: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>1561</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>51844.2444</td>
+    <td>51844.2799</td>
+    <td>3070.7</td>
+    <td>0.069 &plusmn 0.007</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>528.6</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p, A</td>
+  </tr>
+
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>2951</td>
+    <td>2002-02-19</td>
+    <td>ACIS-I3</td>
+    <td>12.5</td>
+    <td>3.9 &plusmn 0.9</td>
+    <td>52324.659</td>
+    <td>52324.674</td>
+    <td>1297</td>
+    <td>0.012 &plusmn 0.001</td>
+    <td>-</td>
+    <td>-</td>
+    <td>1.50</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>3663</td>
     <td>2002-05-24</td>
     <td>ACIS-I3</td>
     <td>38.37</td>
@@ -104,13 +278,59 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.022 &plusmn 0.002</td>
     <td>0.037 &plusmn 0.002</td>
     <td>5.99</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/ACIS-I/3663_SgrA_2-8keV_wcs_evt.fits" download>3663SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/ACIS-I/ACIS-I_3663-start-1stevent-GoodBins.pdf"download>3663 light curve</a></td>
     <td>4</td>
   </tr>
 
   <tr>
-  	<td>3392</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>3663</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>52418.796</td>
+    <td>52209.849</td>
+    <td>4630</td>
+    <td>0.015 &plusmn 0.002</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.31</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>3663</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>52418.7957</td>
+    <td>52418.8506</td>
+    <td>4734</td>
+    <td>0.021 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>25.6</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>    
+    <td>3392</td>
     <td>2002-05-25</td>
     <td>ACIS-I3</td>
     <td>168.17</td>
@@ -121,13 +341,59 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.023 &plusmn 0.003</td>
     <td>0.033 &plusmn 0.002</td>
     <td>4.17</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/ACIS-I/3392_SgrA_2-8keV_wcs_evt.fits" download>3392SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/ACIS-I/ACIS-I_3392-start-1stevent-GoodBins.pdf"download>3392 light curve</a></td>
     <td>4</td>
   </tr>
 
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>3392</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.2 &plusmn 0.5</td>
+    <td>52420.170</td>
+    <td>52420.2014</td>
+    <td>2975</td>
+    <td>0.018 &plusmn 0.009</td>
+    <td>-</td>
+    <td>-</td>
+    <td>0.87</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>3392</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>52420.1699</td>
+    <td>52420.205</td>
+    <td>3032</td>
+    <td>0.022 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>17.1</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>3392</td>
     <td></td>
     <td></td>
     <td></td>
@@ -138,13 +404,59 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.013 &plusmn 0.002</td>
     <td>0.030 &plusmn 0.002</td>
     <td>3.32</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td></td>
     <td></td>
     <td>4</td>
   </tr>
 
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>3392</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>52420.568</td>
+    <td>52420.627</td>
+    <td>5000</td>
+    <td>0.015 &plusmn 0.009</td>
+    <td>-</td>
+    <td>-</td>
+    <td>1.00</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>3392</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>52420.568</td>
+    <td>52420.6255</td>
+    <td>4971</td>
+    <td>0.012 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>12.3</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>3392</td>
     <td></td>
     <td></td>
     <td></td>
@@ -155,13 +467,59 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.030 &plusmn 0.005</td>
     <td>0.037 &plusmn 0.002</td>
     <td>2.07</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td></td>
     <td></td>
     <td>4</td>
   </tr>
 
   <tr>
-  	<td>3393</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>3392</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>52421.231</td>
+    <td>52421.243</td>
+    <td>959</td>
+    <td>0.024 &plusmn 0.008</td>
+    <td>-</td>
+    <td>-</td>
+    <td>0.69</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>3392</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>52421.2313</td>
+    <td>52421.2435</td>
+    <td>1054</td>
+    <td>0.028 &plusmn 0.013</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>8.2</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>3393</td>
     <td>2002-05-28</td>
     <td>ACIS-I3</td>
     <td>159.17</td>
@@ -172,13 +530,80 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.094 &plusmn 0.005</td>
     <td>0.150 &plusmn 0.009</td>
     <td>22.89</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
 <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/ACIS-I/3393_SgrA_2-8keV_wcs_evt.fits" download>3393SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/ACIS-I/ACIS-I_3393-start-1stevent-GoodBins.pdf"download>3393 light curve</a></td>
     <td>4</td>
   </tr>
 
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>3393</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>4.8 &plusmn 0.3</td>
+    <td>52422.632</td>
+    <td>52422.669</td>
+    <td>3164</td>
+    <td>0.081 &plusmn 0.040</td>
+    <td>-</td>
+    <td>-</td>
+    <td>0.61</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr style="border-top: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>3393</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>52422.6317</td>
+    <td>52422.6471</td>
+    <td>1331</td>
+    <td>0.050 &plusmn 0.016</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p</td>
+  </tr>
+
+  <tr style="border-bottom: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>3393</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>52422.6471</td>
+    <td>52422.6698</td>
+    <td>1959</td>
+    <td>0.10 &plusmn 0.02</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>104.8</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>3393</td>
     <td></td>
     <td></td>
     <td></td>
@@ -189,13 +614,59 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.032 &plusmn 0.002</td>
     <td>0.067 &plusmn 0.004</td>
     <td>11.55</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td></td>
     <td></td>
     <td>4</td>
   </tr>
 
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>3393</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>52423.237</td>
+    <td>52423.294</td>
+    <td>4978</td>
+    <td>0.027 &plusmn 0.012</td>
+    <td>-</td>
+    <td>-</td>
+    <td>3.28</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>3393</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>52423.2364</td>
+    <td>52423.2954</td>
+    <td>5095</td>
+    <td>0.031 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>47.2</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>3393</td>
     <td></td>
     <td></td>
     <td></td>
@@ -206,12 +677,58 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.063 &plusmn 0.008</td>
     <td>0.063 &plusmn 0.004</td>
     <td>4.69</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td></td>
     <td></td>
     <td>4</td>
   </tr>
 
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>3393</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>52423.776</td>
+    <td>52423.787</td>
+    <td>928</td>
+    <td>0.058 &plusmn 0.016</td>
+    <td>-</td>
+    <td>-</td>
+    <td>6.40</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>3393</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>52423.7761</td>
+    <td>52423.7881</td>
+    <td>1033</td>
+    <td>0.057 &plusmn 0.009</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>20.1</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>3549</td>
     <td>2003-06-19</td>
     <td>ACIS-I3</td>
@@ -223,12 +740,16 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.014 &plusmn 0.002</td>
     <td>0.027 &plusmn 0.002</td>
     <td>1.68</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
 <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/ACIS-I/3549_SgrA_2-8keV_wcs_evt.fits" download>3549SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/ACIS-I/ACIS-I_3549-start-1stevent-GoodBins.pdf"download>3549 light curve</a></td>
     <td>0</td>
   </tr>
 
   <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>4684</td>
     <td>2004-07-06</td>
     <td>ACIS-I3</td>
@@ -240,12 +761,79 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.073 &plusmn 0.006</td>
     <td>0.107 &plusmn 0.006</td>
     <td>9.08</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
 <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/ACIS-I/4684_SgrA_2-8keV_wcs_evt.fits" download>4684SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/ACIS-I/ACIS-I_4684-start-1stevent-GoodBins.pdf"download>4684 light curve</a></td>
     <td>4</td>
   </tr>
 
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>4684</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.6 &plusmn 0.4</td>
+    <td>53193.137</td>
+    <td>53193.170</td>
+    <td>2805</td>
+    <td>0.039 &plusmn 0.022</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.87</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr style="border-top: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>4684</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>53193.1378</td>
+    <td>53193.1556</td>
+    <td>1530</td>
+    <td>0.071 &plusmn 0.016</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p</td>
+  </tr>
+
+  <tr style="border-bottom: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>4684</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>53193.1556</td>
+    <td>53193.1691</td>
+    <td>1174</td>
+    <td>0.017 &plusmn 0.009</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>42.5</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>5952</td>
     <td>2005-07-29</td>
     <td>ACIS-I3</td>
@@ -257,12 +845,58 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.020 &plusmn 0.002</td>
     <td>0.033 &plusmn 0.002</td>
     <td>4.04</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
 <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/ACIS-I/5952_SgrA_2-8keV_wcs_evt.fits" download>5952SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/ACIS-I/ACIS-I_5952-start-1stevent-GoodBins.pdf"download>5952 light curve</a></td>
     <td>4</td>
   </tr>
 
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>5952</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.5 &plusmn 0.3</td>
+    <td>53581.105</td>
+    <td>53581.145</td>
+    <td>3481</td>
+    <td>0.016 &plusmn 0.002</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.16</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>5952</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>53581.1053</td>
+    <td>53581.1457</td>
+    <td>3492</td>
+    <td>0.021 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>18.5</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>5953</td>
     <td>2005-07-30</td>
     <td>ACIS-I3</td>
@@ -274,12 +908,58 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.050 &plusmn 0.005</td>
     <td>0.073 &plusmn 0.004</td>
     <td>7.50</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/ACIS-I/5953_SgrA_2-8keV_wcs_evt.fits" download>5953SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/ACIS-I/ACIS-I_5953-start-1stevent-GoodBins.pdf"download>5953 light curve</a></td>
     <td>4</td>
   </tr>
 
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>5953</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.2 &plusmn 0.2</td>
+    <td>53581.926</td>
+    <td>53581.950</td>
+    <td>2068</td>
+    <td>0.043 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>5.13</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>5953</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>53581.9263</td>
+    <td>53581.9511</td>
+    <td>2146</td>
+    <td>0.046 &plusmn 0.008</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>31.5</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.p</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>6363</td>
     <td>2006-07-17</td>
     <td>ACIS-I3</td>
@@ -291,12 +971,185 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.064 &plusmn 0.005</td>
     <td>0.113 &plusmn 0.007</td>
     <td>12.60</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/ACIS-I/6363_SgrA_2-8keV_wcs_evt.fits" download>6363SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/ACIS-I/ACIS-I_6363-start-1stevent-GoodBins.pdf"download>6363 light curve</a></td>
     <td>4</td>
   </tr>
 
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>6363</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>4.2 &plusmn 0.4</td>
+    <td>53933.245</td>
+    <td>53933.274</td>
+    <td>2516</td>
+    <td>0.055 &plusmn 0.007</td>
+    <td>-</td>
+    <td>-</td>
+    <td>6.49</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr style="border-top: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>6363</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>53933.2439</td>
+    <td>53933.2677</td>
+    <td>2059</td>
+    <td>0.07 &plusmn 0.03</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4</td>
+  </tr>
+
+  <tr style="border-bottom: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>6363</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>53193.1556</td>
+    <td>53193.1691</td>
+    <td>1174</td>
+    <td>0.017 &plusmn 0.009</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>54.7</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4</td>
+  </tr>
+
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>6645</td>
+    <td>2006-09-25</td>
+    <td>ACIS-I3</td>
+    <td>5.2</td>
+    <td>6.1 &plusmn 0.9</td>
+    <td>54003.584</td>
+    <td>54003.599</td>
+    <td>1350</td>
+    <td>0.008 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.07</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>6646</td>
+    <td>2006-10-29</td>
+    <td>ACIS-I3</td>
+    <td>5.2</td>
+    <td>7.1 &plusmn 1.2</td>
+    <td>54037.155</td>
+    <td>54037.160</td>
+    <td>407</td>
+    <td>0.012 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>3.45</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>6646</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>-</td>
+    <td>54037.1559</td>
+    <td>54037.1589</td>
+    <td>261</td>
+    <td>0.031 &plusmn 0.0017</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>2.2</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>9169</td>
+    <td>2008-05-05</td>
+    <td>ACIS-I3</td>
+    <td>28.0</td>
+    <td>5.5 &plusmn 0.5</td>
+    <td>54591.441</td>
+    <td>54591.488</td>
+    <td>4050</td>
+    <td>0.006 &plusmn 0.002</td>
+    <td>-</td>
+    <td>-</td>
+    <td>1.27</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>9169</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>-</td>
+    <td>54591.4414</td>
+    <td>54591.4424</td>
+    <td>89</td>
+    <td>0.07 &plusmn 0.04</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>2.1</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>9173</td>
     <td>2008-07-26</td>
     <td>ACIS-I3</td>
@@ -308,12 +1161,17 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.009 &plusmn 0.0009</td>
     <td>0.113 &plusmn 0.007</td>
     <td>4.37</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/ACIS-I/9173_SgrA_2-8keV_wcs_evt.fits" download>9173SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/ACIS-I/ACIS-I_9173-start-1stevent-GoodBins.pdf"download>9173 light curve</a></td>
     <td>0</td>
   </tr>
 
+
   <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>10556</td>
     <td>2009-05-18</td>
     <td>ACIS-I3</td>
@@ -325,13 +1183,59 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.046 &plusmn 0.006</td>
     <td>0.047 &plusmn 0.002</td>
     <td>3.64</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/ACIS-I/10556_SgrA_2-8keV_wcs_evt.fits" download>10556SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/ACIS-I/ACIS-I_10556-start-1stevent-GoodBins.pdf"download>10556 light curve</a></td>
     <td>4</td>
   </tr>
 
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>10556</td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td>5.3 &plusmn 0.2</td>
+    <td>54969.108</td>
+    <td>54969.124</td>
+    <td>1435</td>
+    <td>0.031 &plusmn 0.007</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.03</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>10556</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>54969.1108</td>
+    <td>54969.1246</td>
+    <td>1198</td>
+    <td>0.0409 &plusmn 0.009</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>15.2</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>10556</td>
     <td></td>
     <td></td>
     <td></td>
@@ -344,11 +1248,57 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>5.69</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>4</td>
   </tr>
 
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>10556</td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>54969.404</td>
+    <td>54969.444</td>
+    <td>3501</td>
+    <td>0.019 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.57</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>10556</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>54969.4034</td>
+    <td>54969.445</td>
+    <td>3598</td>
+    <td>0.024 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>22.8</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>10556</td>
     <td></td>
     <td></td>
     <td></td>
@@ -361,11 +1311,57 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>13.67</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>4</td>
   </tr>
 
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>10556</td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>54969.961</td>
+    <td>54969.980</td>
+    <td>1633</td>
+    <td>0.091 &plusmn 0.007</td>
+    <td>-</td>
+    <td>-</td>
+    <td>9.07</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>10556</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>54969.9604</td>
+    <td>54969.9805</td>
+    <td>1732</td>
+    <td>0.090 &plusmn 0.008</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>60.7</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>10556</td>
     <td></td>
     <td></td>
     <td></td>
@@ -378,10 +1374,56 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>4.20</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>4</td>
   </tr>
 
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>10556</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>54970.020</td>
+    <td>54970.036</td>
+    <td>465</td>
+    <td>0.091 &plusmn 0.015</td>
+    <td>-</td>
+    <td>-</td>
+    <td>10.8</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>10556</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>54970.0357</td>
+    <td>54970.0426</td>
+    <td>1732</td>
+    <td>0.0815 &plusmn 0.0017</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>17.9</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>11843</td>
     <td>2010-05-13</td>
     <td>ACIS-I3</td>
@@ -393,12 +1435,58 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.124 &plusmn 0.006</td>
     <td>0.130 &plusmn 0.008</td>
     <td>32.80</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/ACIS-I/11843_SgrA_2-8keV_wcs_evt.fits" download>11843SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/ACIS-I/ACIS-I_11843-start-1stevent-GoodBins.pdf"download>11843 light curve</a></td>
     <td>4</td>
   </tr>
 
-  <tr style="border-bottom: 1px solid">
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>11843</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.9 &plusmn 0.3</td>
+    <td>55329.146</td>
+    <td>55329.193</td>
+    <td>4106</td>
+    <td>0.036 &plusmn 0.026</td>
+    <td>-</td>
+    <td>-</td>
+    <td>3.36</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>11843</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>55329.1491</td>
+    <td>55329.1902</td>
+    <td>3556</td>
+    <td>0.104 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>156.4</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4</td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>13016</td>
     <td>2011-03-29</td>
     <td>ACIS-I3</td>
@@ -410,13 +1498,80 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.014 &plusmn 0.002</td>
     <td>0.020 &plusmn 0.001</td>
     <td>2.43</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/ACIS-I/13016_SgrA_2-8keV_wcs_evt.fits" download>13016SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/ACIS-I/ACIS-I_13016-start-1stevent-GoodBins.pdf"download>13016 light curve</a></td>
     <td>4</td>
   </tr>
 
   <tr>
-  	<td>14392</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13016</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>3.5 &plusmn 0.5</td>
+    <td>55649.445</td>
+    <td>55649.482</td>
+    <td>3164</td>
+    <td>0.009 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>1.70</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr style="border-bottom: 4px solid">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13016</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>55649.4479</td>
+    <td>55649.4826</td>
+    <td>2998</td>
+    <td>0.014 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>10.1</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4</td>
+  </tr>
+
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>12949</td>
+    <td>2011-07-21</td>
+    <td>ACIS-I0</td>
+    <td>59.2</td>
+    <td>3.0 &plusmn 0.1</td>
+    <td>55763.753</td>
+    <td>55763.758</td>
+    <td>422</td>
+    <td>0.045 &plusmn 0.011</td>
+    <td>-</td>
+    <td>-</td>
+    <td>20.5</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14392</td>
     <td>2012-02-09</td>
     <td>HETG/ACIS-S3</td>
     <td>59.0</td>
@@ -427,12 +1582,59 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.021 &plusmn 0.003</td>
     <td>0.033 &plusmn 0.002</td>
     <td>3.74</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/14392SgrA.fits" download>14392SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-14392.pdf"download>14392 light curve</a></td>
     <td>6</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14392</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.4 &plusmn 0.3</td>
+    <td>55966.444</td>
+    <td>55966.456</td>
+    <td>1084</td>
+    <td>0.016 &plusmn 0.002</td>
+    <td>-</td>
+    <td>-</td>
+    <td>1.74</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>6</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>14392</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.2 &plusmn 0.6</td>
+    <td>55966.433</td>
+    <td>55966.464</td>
+    <td>2600</td>
+    <td>-</td>
+    <td>0.021<span class='supsub'><sup class='superscript'>+0.011</sup><sub class='subscript'>-0.008</sub></span></td>
+    <td>-</td>
+    <td>0.8</td>
+    <td>33<span class='supsub'><sup class='superscript'>+12</sup><sub class='subscript'>-11</sub></span></td>
+    <td>1.7</td>
+    <td>-</td>
+    <td>-</td>
+    <td>6</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14392</td>
     <td></td>
     <td></td>
     <td></td>
@@ -445,10 +1647,141 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>101.1</td>
     <td></td>
     <td></td>
-    <td>7,A</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7, A</td>
   </tr>
+
   <tr>
-  	<td>13854</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14392</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>55966.601</td>
+    <td>55966.669</td>
+    <td>5899</td>
+    <td>0.109 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>20.5</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7, A</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>14392</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>55966.603</td>
+    <td>55966.666</td>
+    <td>5450</td>
+    <td>-</td>
+    <td>0.23 &plusmn 0.03</td>
+    <td>-</td>
+    <td>8.5</td>
+    <td>706<span class='supsub'><sup class='superscript'>+46</sup><sub class='subscript'>-44</sub></span></td>
+    <td>19.2</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7, A</td>
+  </tr>
+  
+  <tr style="border-top: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14392</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>55966.6022</td>
+    <td>55966.6167</td>
+    <td>1250</td>
+    <td>0.041 &plusmn 0.014</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7, A</td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14392</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>55966.6167</td>
+    <td>55966.6553</td>
+    <td>3336</td>
+    <td>0.102 &plusmn 0.018</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7, A</td>
+  </tr>
+
+  <tr style="border-bottom: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14392</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>55966.6553</td>
+    <td>55966.6669</td>
+    <td>997</td>
+    <td>0.031 &plusmn 0.009</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>469.4</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7, A</td>
+  </tr>
+
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13857</td>
+    <td>2012-03-17</td>
+    <td>HETG/ACIS-S3</td>
+    <td>39.6</td>
+    <td>6.6 &plusmn 0.5</td>
+    <td>56003.670</td>
+    <td>56003.675</td>
+    <td>471</td>
+    <td>0.031 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.41</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13854</td>
     <td>2012-03-20</td>
     <td>HETG/ACIS-S3</td>
     <td>22.7</td>
@@ -459,12 +1792,80 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.054 &plusmn 0.009</td>
     <td>0.050 &plusmn 0.003</td>
     <td>3.97</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/13854SgrA.fits" download>13854SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-13854.pdf"download>13854 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13854</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56006.486</td>
+    <td>56006.494</td>
+    <td>625</td>
+    <td>0.046 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.47</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13854</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.7 &plusmn 1.0</td>
+    <td>56006.486</td>
+    <td>56006.493</td>
+    <td>600</td>
+    <td>-</td>
+    <td>0.06<span class='supsub'><sup class='superscript'>+0.03</sup><sub class='subscript'>-0.02</sub></span></td>
+    <td>-</td>
+    <td>3.3</td>
+    <td>32<span class='supsub'><sup class='superscript'>+11</sup><sub class='subscript'>-9</sub></span></td>
+    <td>7.4</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13854</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56006.4881</td>
+    <td>56006.4943</td>
+    <td>538</td>
+    <td>0.039 &plusmn 0.014</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>18.7</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13854</td>
     <td></td>
     <td></td>
     <td></td>
@@ -477,10 +1878,78 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>4.96</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13854</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56006.528</td>
+    <td>56006.537</td>
+    <td>801</td>
+    <td>0.047 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.00</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13854</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56006.524</td>
+    <td>56006.540</td>
+    <td>1350</td>
+    <td>-</td>
+    <td>0.05<span class='supsub'><sup class='superscript'>+0.02</sup><sub class='subscript'>-0.01</sub></span></td>
+    <td>-</td>
+    <td>1.8</td>
+    <td>40<span class='supsub'><sup class='superscript'>+12</sup><sub class='subscript'>-10</sub></span></td>
+    <td>4.1</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13854</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56006.527</td>
+    <td>56006.537</td>
+    <td>861</td>
+    <td>0.028 &plusmn 0.011</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>19.8</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13854</td>
     <td></td>
     <td></td>
     <td></td>
@@ -493,10 +1962,78 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>5.45</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13854</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56006.585</td>
+    <td>56006.596</td>
+    <td>697</td>
+    <td>0.042 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.34</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13854</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56006.580</td>
+    <td>56006.599</td>
+    <td>1600</td>
+    <td>-</td>
+    <td>0.05<span class='supsub'><sup class='superscript'>+0.02</sup><sub class='subscript'>-0.01</sub></span></td>
+    <td>-</td>
+    <td>1.9</td>
+    <td>49<span class='supsub'><sup class='superscript'>+13</sup><sub class='subscript'>-12</sub></span></td>
+    <td>4.2</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13854</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56006.5853</td>
+    <td>56006.5963</td>
+    <td>949</td>
+    <td>0.024 &plusmn 0.008</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>18.8</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13854</td>
     <td></td>
     <td></td>
     <td></td>
@@ -509,10 +2046,78 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>5.08</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>13847</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13854</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56006.682</td>
+    <td>56006.686</td>
+    <td>393</td>
+    <td>0.095 &plusmn 0.008</td>
+    <td>-</td>
+    <td>-</td>
+    <td>3.72</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13854</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56006.678</td>
+    <td>56006.690</td>
+    <td>950</td>
+    <td>-</td>
+    <td>0.07<span class='supsub'><sup class='superscript'>+0.03</sup><sub class='subscript'>-0.02</sub></span></td>
+    <td>-</td>
+    <td>3.1</td>
+    <td>49<span class='supsub'><sup class='superscript'>+13</sup><sub class='subscript'>-14</sub></span></td>
+    <td>7.1</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13854</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56006.6803</td>
+    <td>56006.688</td>
+    <td>669</td>
+    <td>0.042 &plusmn 0.016</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>25.9</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13847</td>
     <td>2012-04-30</td>
     <td>HETG/ACIS-S3</td>
     <td>153.4</td>
@@ -523,12 +2128,101 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.024 &plusmn 0.003</td>
     <td>0.040 &plusmn 0.002</td>
     <td>7.56</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/13847SgrA.fits" download>13847SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-13847.pdf"download>13847 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>14427</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13847</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.7 &plusmn 0.2</td>
+    <td>56048.515</td>
+    <td>56048.548</td>
+    <td>2855</td>
+    <td>0.016 &plusmn 0.001</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.71</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13847</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.0 &plusmn 0.3</td>
+    <td>56048.510</td>
+    <td>56048.548</td>
+    <td>3250</td>
+    <td>-</td>
+    <td>0.03<span class='supsub'><sup class='superscript'>+0.02</sup><sub class='subscript'>-0.01</sub></span></td>
+    <td>-</td>
+    <td>1.1</td>
+    <td>59<span class='supsub'><sup class='superscript'>+16</sup><sub class='subscript'>-14</sub></span></td>
+    <td>2.5</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13847</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56048.5111</td>
+    <td>56048.5471</td>
+    <td>3111</td>
+    <td>0.013 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>28.4</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13847</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56048.679</td>
+    <td>56048.693</td>
+    <td>1200</td>
+    <td>-</td>
+    <td>0.020<span class='supsub'><sup class='superscript'>+0.015</sup><sub class='subscript'>-0.010</sub></span></td>
+    <td>-</td>
+    <td>0.7</td>
+    <td>15<span class='supsub'><sup class='superscript'>+8</sup><sub class='subscript'>-7</sub></span></td>
+    <td>1.7</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14427</td>
     <td>2012-05-06</td>
     <td>HETG/ACIS-S3</td>
     <td>79.9</td>
@@ -539,12 +2233,80 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.020 &plusmn 0.002</td>
     <td>0.037 &plusmn 0.002</td>
     <td>8.71</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/14427SgrA.fits" download>14427SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-14427.pdf"download>14427 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14427</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.9 &plusmn 0.5</td>
+    <td>56054.096</td>
+    <td>56054.161</td>
+    <td>5566</td>
+    <td>0.015 &plusmn 0.002</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.66</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>14427</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.8 &plusmn 0.5</td>
+    <td>56054.107</td>
+    <td>56054.154</td>
+    <td>4050</td>
+    <td>-</td>
+    <td>0.03<span class='supsub'><sup class='superscript'>+0.02</sup><sub class='subscript'>-0.01</sub></span></td>
+    <td>-</td>
+    <td>0.7</td>
+    <td>49<span class='supsub'><sup class='superscript'>+15</sup><sub class='subscript'>-13</sub></span></td>
+    <td>1.6</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14427</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56054.1274</td>
+    <td>56054.1479</td>
+    <td>1776</td>
+    <td>0.015 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>20.8</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14427</td>
     <td></td>
     <td></td>
     <td></td>
@@ -557,10 +2319,57 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>3.46</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>4</td>
   </tr>
+  
   <tr>
-  	<td>13849</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14427</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56054.470</td>
+    <td>56054.489</td>
+    <td>1659</td>
+    <td>0.013 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>1.31</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>4</td>
+  </tr>
+
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14427</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56054.4684</td>
+    <td>56054.5067</td>
+    <td>3309</td>
+    <td>0.009 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>19.3</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13849</td>
     <td>2012-05-11</td>
     <td>HETG/ACIS-S3</td>
     <td>178.3</td>
@@ -571,12 +2380,80 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.028 &plusmn 0.005</td>
     <td>0.037 &plusmn 0.002</td>
     <td>3.19</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/13849SgrA.fits" download>13849SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-13849.pdf"download>13849 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13849</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>7.1 &plusmn 0.3</td>
+    <td>56058.693</td>
+    <td>56058.725</td>
+    <td>2802</td>
+    <td>0.019 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.01</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13849</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.7 &plusmn 0.3</td>
+    <td>56058.687</td>
+    <td>56058.705</td>
+    <td>1600</td>
+    <td>-</td>
+    <td>0.03 &plusmn 0.01</td>
+    <td>-</td>
+    <td>0.9</td>
+    <td>24<span class='supsub'><sup class='superscript'>+10</sup><sub class='subscript'>-11</sub></span></td>
+    <td>2.0</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13849</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56058.6909</td>
+    <td>56058.7049</td>
+    <td>1204</td>
+    <td>0.015 &plusmn 0.007</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>13.6</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13849</td>
     <td></td>
     <td></td>
     <td></td>
@@ -589,10 +2466,78 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>5.36</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13849</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56059.014</td>
+    <td>56059.078</td>
+    <td>5518</td>
+    <td>0.009 &plusmn 0.002</td>
+    <td>-</td>
+    <td>-</td>
+    <td>1.72</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13849</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56059.006</td>
+    <td>56059.044</td>
+    <td>3250</td>
+    <td>-</td>
+    <td>0.017 <span class='supsub'><sup class='superscript'>+0.010</sup><sub class='subscript'>-0.007</sub></span></td>
+    <td>-</td>
+    <td>0.6</td>
+    <td>33<span class='supsub'><sup class='superscript'>+15</sup><sub class='subscript'>-11</sub></span></td>
+    <td>1.4</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13849</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56059.0214</td>
+    <td>56059.0469</td>
+    <td>2203</td>
+    <td>0.011 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>16.7</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13849</td>
     <td></td>
     <td></td>
     <td></td>
@@ -605,10 +2550,57 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>2.96</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>6</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13849</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56059.321</td>
+    <td>56059.344</td>
+    <td>2038</td>
+    <td>0.021 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>9.20</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>6</td>
+  </tr>
+  
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13849</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56059.314</td>
+    <td>56059.329</td>
+    <td>1250</td>
+    <td>-</td>
+    <td>0.03 <span class='supsub'><sup class='superscript'>+0.02</sup><sub class='subscript'>-0.01</sub></span></td>
+    <td>-</td>
+    <td>1.0</td>
+    <td>21<span class='supsub'><sup class='superscript'>+10</sup><sub class='subscript'>-8</sub></span></td>
+    <td>2.3</td>
+    <td>-</td>
+    <td>-</td>
+    <td>6</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13849</td>
     <td></td>
     <td></td>
     <td></td>
@@ -621,10 +2613,78 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>15.46</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>13845</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13849</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56060.133</td>
+    <td>56060.165</td>
+    <td>2799</td>
+    <td>0.041 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.08</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13849</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56060.127</td>
+    <td>56060.168</td>
+    <td>3500</td>
+    <td>-</td>
+    <td>0.06 &plusmn 0.01</td>
+    <td>-</td>
+    <td>2.2</td>
+    <td>124<span class='supsub'><sup class='superscript'>+21</sup><sub class='subscript'>-19</sub></span></td>
+    <td>4.9</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13849</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56060.1334</td>
+    <td>56060.1681</td>
+    <td>3000</td>
+    <td>0.028 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>70.0</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13845</td>
     <td>2012-05-19</td>
     <td>HETG/ACIS-S3</td>
     <td>133.3</td>
@@ -635,12 +2695,38 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.018 &plusmn 0.003</td>
     <td>0.023 &plusmn 0.001</td>
     <td>2.53</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/13845SgrA.fits" download>13845SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-13845.pdf"download>13845 light curve</a></td>
     <td>2</td>
   </tr>
+  
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13845</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.2 &plusmn 0.2</td>
+    <td>56066.577</td>
+    <td>56066.603</td>
+    <td>2246</td>
+    <td>0.013 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.79</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>2</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13845</td>
     <td></td>
     <td></td>
     <td></td>
@@ -653,10 +2739,99 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>20.38</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>14465</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13845</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56067.867</td>
+    <td>56067.885</td>
+    <td>1548</td>
+    <td>0.056 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.62</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13845</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.3 &plusmn 0.4</td>
+    <td>56067.863</td>
+    <td>56067.888</td>
+    <td>2150</td>
+    <td>-</td>
+    <td>0.08 &plusmn 0.02</td>
+    <td>-</td>
+    <td>2.9</td>
+    <td>102<span class='supsub'><sup class='superscript'>+18</sup><sub class='subscript'>-17</sub></span></td>
+    <td>6.6</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13845</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56067.8636</td>
+    <td>56067.884</td>
+    <td>1761</td>
+    <td>0.036 &plusmn 0.010</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>55.3</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13853</td>
+    <td>2012-07-14</td>
+    <td>HETG/ACIS-S3</td>
+    <td>73.66</td>
+    <td>5.2 &plusmn 0.4</td>
+    <td>56122.650</td>
+    <td>56122.656</td>
+    <td>500</td>
+    <td>-</td>
+    <td>0.03<span class='supsub'><sup class='superscript'>+0.02</sup><sub class='subscript'>-0.01</sub></span></td>
+    <td>-</td>
+    <td>1.0</td>
+    <td>8<span class='supsub'><sup class='superscript'>+6</sup><sub class='subscript'>-4</sub></span></td>
+    <td>2.3</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14465</td>
     <td>2012-07-18</td>
     <td>HETG/ACIS-S3</td>
     <td>44.2</td>
@@ -667,12 +2842,80 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.019 &plusmn 0.002</td>
     <td>0.033 &plusmn 0.002</td>
     <td>8.25</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/14465SgrA.fits" download>14465SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-14465.pdf"download>14465 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14465</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.7 &plusmn 0.4</td>
+    <td>56126.975</td>
+    <td>56126.043</td>
+    <td>5957</td>
+    <td>0.012 &plusmn 0.002</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.51</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>14465</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.8 &plusmn 0.7</td>
+    <td>56126.979</td>
+    <td>56127.038</td>
+    <td>5100</td>
+    <td>-</td>
+    <td>0.03<span class='supsub'><sup class='superscript'>+0.02</sup><sub class='subscript'>-0.01</sub></span></td>
+    <td>-</td>
+    <td>0.7</td>
+    <td>58<span class='supsub'><sup class='superscript'>+16</sup><sub class='subscript'>-15</sub></span></td>
+    <td>1.6</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14465</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56126.9761</td>
+    <td>56127.0274</td>
+    <td>4433</td>
+    <td>0.0099 &plusmn 0.0017</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>29.7</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14465</td>
     <td></td>
     <td></td>
     <td></td>
@@ -685,10 +2928,78 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>3.56</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>14466</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14465</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56127.179</td>
+    <td>56127.202</td>
+    <td>1982</td>
+    <td>0.012 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.75</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>14465</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56127.172</td>
+    <td>56127.202</td>
+    <td>2550</td>
+    <td>-</td>
+    <td>0.017<span class='supsub'><sup class='superscript'>+0.010</sup><sub class='subscript'>-0.007</sub></span></td>
+    <td>-</td>
+    <td>0.6</td>
+    <td>26<span class='supsub'><sup class='superscript'>+11</sup><sub class='subscript'>-9</sub></span></td>
+    <td>1.4</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14465</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56127.1777</td>
+    <td>56127.2023</td>
+    <td>2130</td>
+    <td>0.009 &plusmn 0.0017</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>12.7</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14466</td>
     <td>2012-07-20</td>
     <td>HETG/ACIS-S3</td>
     <td>45.0</td>
@@ -699,12 +3010,101 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.08 &plusmn 0.02</td>
     <td>0.063 &plusmn 0.004</td>
     <td>2.62</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/14466SgrA.fits" download>14466SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-14466.pdf"download>14466 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>13842</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14466</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.6 &plusmn 0.4</td>
+    <td>56128.550</td>
+    <td>56128.560</td>
+    <td>870</td>
+    <td>0.067 &plusmn 0.009</td>
+    <td>-</td>
+    <td>-</td>
+    <td>5.61</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>14466</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>7.0 &plusmn 0.7</td>
+    <td>56128.549</td>
+    <td>56128.553</td>
+    <td>400</td>
+    <td>-</td>
+    <td>0.06<span class='supsub'><sup class='superscript'>+0.03</sup><sub class='subscript'>-0.02</sub></span></td>
+    <td>-</td>
+    <td>4.5</td>
+    <td>29<span class='supsub'><sup class='superscript'>+10</sup><sub class='subscript'>-9</sub></span></td>
+    <td>10.2</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14466</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56128.5412</td>
+    <td>56128.5545</td>
+    <td>1146</td>
+    <td>0.024 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>22.3</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14466</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56129.019</td>
+    <td>56129.023</td>
+    <td>380</td>
+    <td>0.028 &plusmn 0.008</td>
+    <td>-</td>
+    <td>-</td>
+    <td>5.39</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13842</td>
     <td>2012-07-21</td>
     <td>HETG/ACIS-S3</td>
     <td>191.6</td>
@@ -715,12 +3115,80 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.039 &plusmn 0.003</td>
     <td>0.060 &plusmn 0.004</td>
     <td>13.84</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/13842SgrA.fits" download>13842SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-13842.pdf"download>13842 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13842</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.9 &plusmn 0.3</td>
+    <td>56130.189</td>
+    <td>56130.237</td>
+    <td>4152</td>
+    <td>0.031 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.21</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13842</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.1 &plusmn 0.3</td>
+    <td>56130.182</td>
+    <td>56130.225</td>
+    <td>3700</td>
+    <td>-</td>
+    <td>0.06<span class='supsub'><sup class='superscript'>+0.03</sup><sub class='subscript'>-0.02</sub></span></td>
+    <td>-</td>
+    <td>1.7</td>
+    <td>101<span class='supsub'><sup class='superscript'>+19</sup><sub class='subscript'>-17</sub></span></td>
+    <td>3.8</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13842</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56130.1889</td>
+    <td>56130.2239</td>
+    <td>3026</td>
+    <td>0.022 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>49.5</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13842</td>
     <td></td>
     <td></td>
     <td></td>
@@ -733,10 +3201,78 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>5.87</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13842</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56130.912</td>
+    <td>56130.939</td>
+    <td>2340</td>
+    <td>0.049 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>3.52</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13842</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56130.906</td>
+    <td>56130.921</td>
+    <td>1300</td>
+    <td>-</td>
+    <td>0.06 &plusmn 0.02</td>
+    <td>-</td>
+    <td>2.1</td>
+    <td>46 &plusmn 13</td>
+    <td>4.8</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13842</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56130.9089</td>
+    <td>56130.9176</td>
+    <td>755</td>
+    <td>0.028 &plusmn 0.011</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>18.1</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13842</td>
     <td></td>
     <td></td>
     <td></td>
@@ -749,10 +3285,78 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>15.63</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>13839</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13842</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56131.510</td>
+    <td>56131.584</td>
+    <td>6415</td>
+    <td>0.015 &plusmn 0.001</td>
+    <td>-</td>
+    <td>-</td>
+    <td>3.34</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13842</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56131.494</td>
+    <td>56131.585</td>
+    <td>7800</td>
+    <td>-</td>
+    <td>0.027<span class='supsub'><sup class='superscript'>+0.010</sup><sub class='subscript'>-0.007</sub></span></td>
+    <td>-</td>
+    <td>0.9</td>
+    <td>119<span class='supsub'><sup class='superscript'>+23</sup><sub class='subscript'>-21</sub></span></td>
+    <td>2.1</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13842</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56131.4921</td>
+    <td>56131.5827</td>
+    <td>7830</td>
+    <td>0.0107 &plusmn 0.0019</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>58.0</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13839</td>
     <td>2012-07-24</td>
     <td>HETG/ACIS-S3</td>
     <td>175.5</td>
@@ -763,12 +3367,122 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.051 &plusmn 0.008</td>
     <td>0.063 &plusmn 0.004</td>
     <td>4.95</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/13839SgrA.fits" download>13839SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-13839.pdf"download>13839 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13839</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.7 &plusmn 0.3</td>
+    <td>56132.389</td>
+    <td>56132.404</td>
+    <td>1278</td>
+    <td>0.040 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>3.11</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13839</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.5 &plusmn 0.3</td>
+    <td>56132.385</td>
+    <td>56132.399</td>
+    <td>1150</td>
+    <td>-</td>
+    <td>0.05 &plusmn 0.02</td>
+    <td>-</td>
+    <td>2.0</td>
+    <td>38 &plusmn 12</td>
+    <td>4.5</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13839</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56132.3879</td>
+    <td>56132.3985</td>
+    <td>917</td>
+    <td>0.029 &plusmn 0.03</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>23.5</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13839</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56132.523</td>
+    <td>56132.540</td>
+    <td>1411</td>
+    <td>0.066 &plusmn 0.007</td>
+    <td>-</td>
+    <td>-</td>
+    <td>6.11</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13839</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56133.512</td>
+    <td>56133.521</td>
+    <td>750</td>
+    <td>-</td>
+    <td>0.03<span class='supsub'><sup class='superscript'>+0.02</sup><sub class='subscript'>-0.01</sub></span></td>
+    <td>-</td>
+    <td>1.2</td>
+    <td>14<span class='supsub'><sup class='superscript'>+8</sup><sub class='subscript'>-7</sub></span></td>
+    <td>2.6</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13839</td>
     <td></td>
     <td></td>
     <td></td>
@@ -781,10 +3495,78 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>40.33</td>
     <td></td>
     <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>13840</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13839</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56134.005</td>
+    <td>56134.088</td>
+    <td>7168</td>
+    <td>0.078 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>1.69</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13839</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56133.997</td>
+    <td>56134.042</td>
+    <td>3950</td>
+    <td>-</td>
+    <td>0.14 &plusmn 0.03</td>
+    <td>-</td>
+    <td>3.9</td>
+    <td>251<span class='supsub'><sup class='superscript'>+28</sup><sub class='subscript'>-26</sub></span></td>
+    <td>8.9</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13839</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56134.0027</td>
+    <td>56134.0374</td>
+    <td>2998</td>
+    <td>0.050 &plusmn 0.008</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>143.7</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13840</td>
     <td>2012-07-26</td>
     <td>HETG/ACIS-S3</td>
     <td>162.2</td>
@@ -795,12 +3577,59 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.015 &plusmn 0.002</td>
     <td>0.030 &plusmn 0.002</td>
     <td>4.42</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/13840SgrA.fits" download>13840SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-13840.pdf"download>13840 light curve</a></td>
     <td>4</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13840</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.9 &plusmn 0.2</td>
+    <td>56136.463</td>
+    <td>56136.532</td>
+    <td>5924</td>
+    <td>0.007 &plusmn 0.001</td>
+    <td>-</td>
+    <td>-</td>
+    <td>1.80</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>4</td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13840</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56136.48</td>
+    <td>56136.5078</td>
+    <td>2399</td>
+    <td>0.010 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>14.8</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13840</td>
     <td></td>
     <td></td>
     <td></td>
@@ -813,26 +3642,99 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>3.72</td>
     <td></td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td>2</td>
   </tr>
+  
   <tr>
-  	<td>14432</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13840</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56136.637</td>
+    <td>56136.654</td>
+    <td>1454</td>
+    <td>0.014 &plusmn 0.002</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.18</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>2</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14432</td>
     <td>2012-07-30</td>
     <td>HETG/ACIS-S3</td>
     <td>74.2</td>
     <td>5.9 &plusmn 0.3</td>
     <td>56138.558</td>
     <td>56138.609</td>
-    <td> 4482</td>
+    <td>4482</td>
     <td>0.013 &plusmn 0.002</td>
     <td>0.020 &plusmn 0.001</td>
     <td>3.88</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/14432SgrA.fits" download>14432SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-14432.pdf"download>14432 light curve</a></td>
     <td>4</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14432</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.9 &plusmn 0.3</td>
+    <td>56138.539</td>
+    <td>56138.613</td>
+    <td>6442</td>
+    <td>0.003 &plusmn 0.001</td>
+    <td>-</td>
+    <td>-</td>
+    <td>8.29</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>4</td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14432</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56138.557</td>
+    <td>56138.6163</td>
+    <td>5130</td>
+    <td>0.0070 &plusmn 0.0013</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>22.5</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14432</td>
     <td></td>
     <td></td>
     <td></td>
@@ -845,10 +3747,78 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>22.57</td>
     <td></td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>13838</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14432</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56138.373</td>
+    <td>56138.425</td>
+    <td>4583</td>
+    <td>0.051 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>9.08</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>14432</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.2 &plusmn 0.5</td>
+    <td>56139.368</td>
+    <td>56139.417</td>
+    <td>4250</td>
+    <td>-</td>
+    <td>0.08<span class='supsub'><sup class='superscript'>+0.03</sup><sub class='subscript'>-0.02</sub></span></td>
+    <td>-</td>
+    <td>2.4</td>
+    <td>166<span class='supsub'><sup class='superscript'>+24</sup><sub class='subscript'>-22</sub></span></td>
+    <td>5.4</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+    
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14432</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56139.3726</td>
+    <td>56139.4166</td>
+    <td>3803</td>
+    <td>0.0030 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>99.6</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13838</td>
     <td>2012-08-01</td>
     <td>HETG/ACIS-S3</td>
     <td>99.1</td>
@@ -859,12 +3829,101 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.055 &plusmn 0.004</td>
     <td>0.123 &plusmn 0.007</td>
     <td>19.48</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/13838SgrA.fits" download>13838SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-13838.pdf"download>13838 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>13852</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13838</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.8 &plusmn 0.3</td>
+    <td>56141.013</td>
+    <td>56141.048</td>
+    <td>2977</td>
+    <td>0.024 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>5.64</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13838</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.5 &plusmn 0.4</td>
+    <td>56141.009</td>
+    <td>56141.035</td>
+    <td>2250</td>
+    <td>-</td>
+    <td>0.10 &plusmn 0.02</td>
+    <td>-</td>
+    <td>3.7</td>
+    <td>135<span class='supsub'><sup class='superscript'>+21</sup><sub class='subscript'>-23</sub></span></td>
+    <td>8.4</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+ <tr style="border-top: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13838</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56141.013</td>
+    <td>56141.0298</td>
+    <td>1452</td>
+    <td>0.05 &plusmn 0.02</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+ <tr style="border-bottom: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13838</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56141.0298</td>
+    <td>56141.0477</td>
+    <td>1544</td>
+    <td>0.012 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>80.9</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13852</td>
     <td>2012-08-04</td>
     <td>HETG/ACIS-S3</td>
     <td>155.9</td>
@@ -875,12 +3934,101 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.053 &plusmn 0.007</td>
     <td>0.060 &plusmn 0.003</td>
     <td>7.22</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/13852SgrA.fits" download>13852SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-13852.pdf"download>13852 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13852</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>7.2 &plusmn 0.3</td>
+    <td>56143.318</td>
+    <td>56143.340</td>
+    <td>1890</td>
+    <td>0.042 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>3.75</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13852</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.2 &plusmn 0.3</td>
+    <td>56143.314</td>
+    <td>56143.332</td>
+    <td>1550</td>
+    <td>-</td>
+    <td>0.06<span class='supsub'><sup class='superscript'>+0.02</sup><sub class='subscript'>-0.01</sub></span></td>
+    <td>-</td>
+    <td>2.3</td>
+    <td>58 &plusmn 15</td>
+    <td>5.1</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13852</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56143.3157</td>
+    <td>56143.3309</td>
+    <td>1312</td>
+    <td>0.029 &plusmn 0.007</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>32.9</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13852</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56143.7398</td>
+    <td>56143.8904</td>
+    <td>13008</td>
+    <td>0.0049 &plusmn 0.0015</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>31.5</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13852</td>
     <td></td>
     <td></td>
     <td></td>
@@ -893,10 +4041,78 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>3.45</td>
     <td></td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>14439</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13852</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56144.338</td>
+    <td>56144.357</td>
+    <td>958</td>
+    <td>0.016 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.44</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13852</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56144.321</td>
+    <td>56144.363</td>
+    <td>3600</td>
+    <td>-</td>
+    <td>0.015<span class='supsub'><sup class='superscript'>+0.008</sup><sub class='subscript'>-0.006</sub></span></td>
+    <td>-</td>
+    <td>0.6</td>
+    <td>33<span class='supsub'><sup class='superscript'>+14</sup><sub class='subscript'>-12</sub></span></td>
+    <td>1.2</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13852</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56144.3311</td>
+    <td>56144.3691</td>
+    <td>3282</td>
+    <td>0.009 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>21.7</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14439</td>
     <td>2012-08-06</td>
     <td>HETG/ACIS-S3</td>
     <td>111.3</td>
@@ -907,12 +4123,80 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.053 &plusmn 0.007</td>
     <td>0.037 &plusmn 0.002</td>
     <td>3.51</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/14439SgrA.fits" download>14439SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-14439.pdf"download>14439 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>14462</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14439</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.4 &plusmn 0.2</td>
+    <td>56147.135</td>
+    <td>56147.147</td>
+    <td>1005</td>
+    <td>0.009 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.49</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>14439</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.9 &plusmn 0.4</td>
+    <td>56147.131</td>
+    <td>56147.151</td>
+    <td>1750</td>
+    <td>-</td>
+    <td>0.03 &plusmn 0.01</td>
+    <td>-</td>
+    <td>0.9</td>
+    <td>27<span class='supsub'><sup class='superscript'>+11</sup><sub class='subscript'>-10</sub></span></td>
+    <td>2.1</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14439</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56147.1319</td>
+    <td>56147.1528</td>
+    <td>1807</td>
+    <td>0.012 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>15.9</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14462</td>
     <td>2012-10-06</td>
     <td>HETG/ACIS-S3</td>
     <td>133.8</td>
@@ -923,12 +4207,80 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.031 &plusmn 0.006</td>
     <td>0.047 &plusmn 0.003</td>
     <td>3.07</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/14462SgrA.fits" download>14462SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-14462.pdf"download>14462 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14462</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.3 &plusmn 0.3</td>
+    <td>56207.181</td>
+    <td>56207.202</td>
+    <td>1787</td>
+    <td>0.024 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>3.67</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>14462</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.8 &plusmn 0.3</td>
+    <td>56207.174</td>
+    <td>56207.194</td>
+    <td>1700</td>
+    <td>-</td>
+    <td>0.03<span class='supsub'><sup class='superscript'>+0.02</sup><sub class='subscript'>-0.01</sub></span></td>
+    <td>-</td>
+    <td>1.1</td>
+    <td>30<span class='supsub'><sup class='superscript'>+11</sup><sub class='subscript'>-10</sub></span></td>
+    <td>2.4</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14462</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56207.1717</td>
+    <td>56207.2055</td>
+    <td>2924</td>
+    <td>0.008 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>14.5</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14462</td>
     <td></td>
     <td></td>
     <td></td>
@@ -941,10 +4293,78 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>7.02</td>
     <td></td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>14463</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14462</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56208.193</td>
+    <td>56208.217</td>
+    <td>2130</td>
+    <td>0.021 &plusmn 0.002</td>
+    <td>-</td>
+    <td>-</td>
+    <td>12.4</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>14462</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56208.187</td>
+    <td>56208.222</td>
+    <td>2950</td>
+    <td>-</td>
+    <td>0.05<span class='supsub'><sup class='superscript'>+0.03</sup><sub class='subscript'>-0.02</sub></span></td>
+    <td>-</td>
+    <td>1.1</td>
+    <td>54<span class='supsub'><sup class='superscript'>+15</sup><sub class='subscript'>-13</sub></span></td>
+    <td>2.5</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14462</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56208.187</td>
+    <td>56208.2136</td>
+    <td>2303</td>
+    <td>0.013 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>22.3</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14463</td>
     <td>2012-10-16</td>
     <td>HETG/ACIS-S3</td>
     <td>30.4</td>
@@ -955,12 +4375,80 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.12  &plusmn 0.02</td>
     <td>0.113 &plusmn 0.007</td>
     <td>7.89</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/14463SgrA.fits" download>14463SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-14463.pdf"download>14463 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>13851</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14463</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.6 &plusmn 0.6</td>
+    <td>56216.241</td>
+    <td>56216.246</td>
+    <td>535</td>
+    <td>0.102 &plusmn 0.019</td>
+    <td>-</td>
+    <td>-</td>
+    <td>11.0</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>14463</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.7 &plusmn 0.8</td>
+    <td>56216.239</td>
+    <td>56216.248</td>
+    <td>750</td>
+    <td>-</td>
+    <td>0.11<span class='supsub'><sup class='superscript'>+0.04</sup><sub class='subscript'>-0.03</sub></span></td>
+    <td>-</td>
+    <td>4.7</td>
+    <td>58<span class='supsub'><sup class='superscript'>+14</sup><sub class='subscript'>-12</sub></span></td>
+    <td>10.7</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14463</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56216.2406</td>
+    <td>56216.2466</td>
+    <td>522</td>
+    <td>0.069 &plusmn 0.019</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>36.4</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13851</td>
     <td>2012-10-16</td>
     <td>HETG/ACIS-S3</td>
     <td>106.8</td>
@@ -971,12 +4459,59 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.07 &plusmn 0.02</td>
     <td>0.040 &plusmn 0.002</td>
     <td>1.34</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/13851SgrA.fits" download>13851SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-13851.pdf"download>13851 light curve</a></td>
     <td>6</td>
   </tr>
+
   <tr>
-  	<td></td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13851</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.8 &plusmn 0.3</td>
+    <td>56217.096</td>
+    <td>56217.108</td>
+    <td>1046</td>
+    <td>0.047 &plusmn 0.007</td>
+    <td>-</td>
+    <td>-</td>
+    <td>1.61</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>6</td>
+  </tr>
+  
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13851</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.8 &plusmn 0.4</td>
+    <td>56217.094</td>
+    <td>56217.098</td>
+    <td>400</td>
+    <td>-</td>
+    <td>0.03<span class='supsub'><sup class='superscript'>+0.02</sup><sub class='subscript'>-0.01</sub></span></td>
+    <td>-</td>
+    <td>2.4</td>
+    <td>15<span class='supsub'><sup class='superscript'>+8</sup><sub class='subscript'>-6</sub></span></td>
+    <td>5.4</td>
+    <td>-</td>
+    <td>-</td>
+    <td>6</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13851</td>
     <td></td>
     <td></td>
     <td></td>
@@ -989,10 +4524,183 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>51.76</td>
     <td></td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>13843</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13851</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56217.825</td>
+    <td>56217.877</td>
+    <td>4470</td>
+    <td>0.073 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>34.3</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13851</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56217.816</td>
+    <td>56217.884</td>
+    <td>5900</td>
+    <td>-</td>
+    <td>0.16<span class='supsub'><sup class='superscript'>+0.04</sup><sub class='subscript'>-0.03</sub></span></td>
+    <td>-</td>
+    <td>3.9</td>
+    <td>372<span class='supsub'><sup class='superscript'>+34</sup><sub class='subscript'>-32</sub></span></td>
+    <td>8.9</td>
+    <td>-</td>
+    <td>-</td>
+    <td>6</td>
+  </tr>
+  
+ <tr style="border-top: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13851</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56217.8153</td>
+    <td>56217.8237</td>
+    <td>732</td>
+    <td>0.020 &plusmn 0.012</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13851</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56217.8237</td>
+    <td>56217.8406</td>
+    <td>1456</td>
+    <td>0.087 &plusmn 0.014</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13851</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56217.8406</td>
+    <td>56217.8582</td>
+    <td>1522</td>
+    <td>0.040 &plusmn 0.013</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+  
+ <tr style="border-bottom: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13851</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56217.8582</td>
+    <td>56217.8759</td>
+    <td>1527</td>
+    <td>0.011 &plusmn 0.008</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>215.8</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>15568</td>
+    <td>2012-10-18</td>
+    <td>HETG/ACIS-S3</td>
+    <td>36.1</td>
+    <td>6.2 &plusmn 0.4</td>
+    <td>56218.759</td>
+    <td>56218.816</td>
+    <td>4907</td>
+    <td>0.006 &plusmn 0.002</td>
+    <td>-</td>
+    <td>-</td>
+    <td>5.82</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>15568</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>-</td>
+    <td>56218.7394</td>
+    <td>56218.8039</td>
+    <td>5570</td>
+    <td>0.006 &plusmn 0.007</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>18.6</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>13843</td>
     <td>2012-10-22</td>
     <td>HETG/ACIS-S3</td>
     <td>120.4</td>
@@ -1003,12 +4711,122 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.034 &plusmn 0.002</td>
     <td>0.110 &plusmn 0.006</td>
     <td>29.02</td>
-    <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/14392SgrA.fits" download>14392SgrA.fits</a></td>
-    <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-14392.pdf"download>14392 light curve</a></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/13843SgrA.fits" download>13843SgrA.fits</a></td>
+    <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-13843.pdf"download>13843 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>15570</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>13843</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.6 &plusmn 0.3</td>
+    <td>56223.383</td>
+    <td>56223.476</td>
+    <td>8000</td>
+    <td>0.031 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>6.11</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>13843</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.1 &plusmn 0.4</td>
+    <td>56223.384</td>
+    <td>56223.464</td>
+    <td>6900</td>
+    <td>-</td>
+    <td>0.08 &plusmn 0.01</td>
+    <td>-</td>
+    <td>1.7</td>
+    <td>193<span class='supsub'><sup class='superscript'>+26</sup><sub class='subscript'>-24</sub></span></td>
+    <td>3.8</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+ <tr style="border-top: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13843</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56223.3833</td>
+    <td>56223.3929</td>
+    <td>833</td>
+    <td>0.013 &plusmn 0.015</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13843</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56223.3929</td>
+    <td>56223.4178</td>
+    <td>2153</td>
+    <td>0.053 &plusmn 0.007</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+
+ <tr style="border-bottom: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>13843</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56223.3929</td>
+    <td>56223.4178</td>
+    <td>5241</td>
+    <td>0.008 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>143.4</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>15570</td>
     <td>2012-10-25</td>
     <td>HETG/ACIS-S3</td>
     <td>68.4</td>
@@ -1019,12 +4837,101 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.032 &plusmn 0.004</td>
     <td>0.070 &plusmn 0.004</td>
     <td>8.10</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/15570SgrA.fits" download>15570SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-15570.pdf"download>15570 light curve</a></td>
     <td>7</td>
   </tr>
+
   <tr>
-  	<td>14468</td>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>15570</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.1 &plusmn 0.3</td>
+    <td>56225.235</td>
+    <td>56225.261</td>
+    <td>2274</td>
+    <td>0.027 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.03</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>15570</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.7 &plusmn 0.5</td>
+    <td>56225.230</td>
+    <td>56225.263</td>
+    <td>2800</td>
+    <td>-</td>
+    <td>0.05 &plusmn 0.02</td>
+    <td>-</td>
+    <td>1.4</td>
+    <td>63<span class='supsub'><sup class='superscript'>+16</sup><sub class='subscript'>-14</sub></span></td>
+    <td>3.1</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+ <tr style="border-top: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>15570</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56225.2334</td>
+    <td>56225.255</td>
+    <td>1869</td>
+    <td>0.011 &plusmn 0.005</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+
+ <tr style="border-bottom: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>15570</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56225.255</td>
+    <td>56225.2614</td>
+    <td>547</td>
+    <td>0.037 &plusmn 0.017</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>33.3</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14468</td>
     <td>2012-10-29</td>
     <td>HETG/ACIS-S3</td>
     <td>145.9</td>
@@ -1035,12 +4942,102 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.024 &plusmn 0.003</td>
     <td>0.047 &plusmn 0.003</td>
     <td>8.38</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/XVP/14468SgrA.fits" download>14468SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/XVP/WithFlareBoundaries-GoodBins-14468.pdf"download>14468 light curve</a></td>
     <td>7</td>
   </tr>
-  <tr style="border-bottom: 1px solid">
-  	<td></td>
+
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14468</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.8 &plusmn 0.2</td>
+    <td>56230.298</td>
+    <td>56230.345</td>
+    <td>4030</td>
+    <td>0.019 &plusmn 0.002</td>
+    <td>-</td>
+    <td>-</td>
+    <td>6.33</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>14468</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.5 &plusmn 0.3</td>
+    <td>56230.288</td>
+    <td>56230.362</td>
+    <td>6350</td>
+    <td>-</td>
+    <td>0.020<span class='supsub'><sup class='superscript'>+0.007</sup><sub class='subscript'>-0.004</sub></span></td>
+    <td>-</td>
+    <td>0.7</td>
+    <td>74<span class='supsub'><sup class='superscript'>+19</sup><sub class='subscript'>-18</sub></span></td>
+    <td>1.6</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14468</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56230.3007</td>
+    <td>56230.3858</td>
+    <td>7350</td>
+    <td>0.008 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>40.0</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>14468</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56230.724</td>
+    <td>56230.734</td>
+    <td>900</td>
+    <td>-</td>
+    <td>0.02<span class='supsub'><sup class='superscript'>+0.02</sup><sub class='subscript'>-0.01</sub></span></td>
+    <td>-</td>
+    <td>0.9</td>
+    <td>13<span class='supsub'><sup class='superscript'>+8</sup><sub class='subscript'>-7</sub></span></td>
+    <td>2.0</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>14468</td>
     <td></td>
     <td></td>
     <td></td>
@@ -1053,9 +5050,98 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>6.90</td>
     <td></td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td>7</td>
   </tr>
-  <tr style="border-top: 1px solid">
+
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>14468</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56231.573</td>
+    <td>56231.593</td>
+    <td>1727</td>
+    <td>0.023 &plusmn 0.001</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.01</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>7</td>
+  </tr>
+
+  <tr>
+    <td><font color="blue">Neilsen et al. (2013)</font></td>
+    <td>14468</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56231.566</td>
+    <td>56231.592</td>
+    <td>2250</td>
+    <td>-</td>
+    <td>0.05 &plusmn 0.02</td>
+    <td>-</td>
+    <td>1.5</td>
+    <td>54<span class='supsub'><sup class='superscript'>+14</sup><sub class='subscript'>-13</sub></span></td>
+    <td>3.3</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14468</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56231.568</td>
+    <td>56231.5908</td>
+    <td>1971</td>
+    <td>0.016 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>23.8</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7</td>
+  </tr>
+
+  <tr style="border-top: 4px solid">
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>15040</td>
+    <td>2013-05-25</td>
+    <td>HETG/ACIS-S3</td>
+    <td>24.4</td>
+    <td>3.3 &plusmn 0.3</td>
+    <td>56437.725</td>
+    <td>56437.768</td>
+    <td>3750</td>
+    <td>0.006 &plusmn 0.002</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2.12</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>15041</td>
     <td>2013-07-27</td>
     <td>ACIS-S3 1/8th</td>
@@ -1067,12 +5153,59 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.035 &plusmn 0.006</td>
     <td>0.043 &plusmn 0.003</td>
     <td>2.03</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/Post-XVP/15041_SgrA_2-8keV_wcs_evt.fits" download>15041SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/Post-XVP/PostXVP_15041-start-1stevent-GoodBins.pdf"download>15041 light curve</a></td>
     <td>4</td>
   </tr>
+
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>15041</td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td>14.1 &plusmn 0.6</td>
+    <td>56500.146</td>
+    <td>56500.158</td>
+    <td>1037</td>
+    <td>0.021 &plusmn 0.021</td>
+    <td>-</td>
+    <td>-</td>
+    <td>7.01</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>4</td>
+  </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>15041</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56500.1466</td>
+    <td>56500.1581</td>
+    <td>996</td>
+    <td>0.037 &plusmn 0.013</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>6.3</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>15041</td>
     <td></td>
     <td></td>
     <td></td>
@@ -1085,9 +5218,35 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>1.55</td>
     <td></td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td>2</td>
   </tr>
+  
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>15041</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56500.461</td>
+    <td>56500.470</td>
+    <td>924</td>
+    <td>0.019 &plusmn 0.016</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.47</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>2</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>15042</td>
     <td>2013-08-11</td>
     <td>ACIS-S3 1/6th</td>
@@ -1099,12 +5258,38 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.028 &plusmn 0.005</td>
     <td>0.037 &plusmn 0.002</td>
     <td>1.84</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/Post-XVP/15042_SgrA_2-8keV_wcs_evt.fits" download>15042SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/Post-XVP/PostXVP_15042-start-1stevent-GoodBins.pdf"download>15042 light curve</a></td>
-    <td>4.p</td>
+    <td>1.p</td>
   </tr>
-  <tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>15042</td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56516.3568</td>
+    <td>56516.484</td>
+    <td>10991</td>
+    <td>0.014 &plusmn 0.007</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>15.1</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>1.p</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>15042</td>
     <td></td>
     <td></td>
     <td></td>
@@ -1117,9 +5302,35 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>4.60</td>
     <td></td>
     <td></td>
-    <td>4.p</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>1.p</td>
   </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14945</td>
+    <td>2013-08-31</td>
+    <td>ACIS-S3 1/8th</td>
+    <td>18.2</td>
+    <td>-</td>
+    <td>56535.6685</td>
+    <td>56535.6771</td>
+    <td>742</td>
+    <td>0.0256 &plusmn 0.009</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>2.9</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+  
   <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>15043</td>
     <td>2013-09-14</td>
     <td>ACIS-S3 1/8th</td>
@@ -1131,11 +5342,227 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.59 &plusmn 0.01</td>
     <td>0.92 &plusmn 0.05</td>
     <td>270.77</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/Post-XVP/15043_SgrA_2-8keV_wcs_evt.fits" download>15043SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/Post-XVP/PostXVP_15043-start-1stevent-GoodBins.pdf"download>15043 light curve</a></td>
-    <td>4,A</td>
+    <td>4, A</td>
   </tr>
+
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>15043</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>9.0 &plusmn 0.6</td>
+    <td>56549.085</td>
+    <td>56549.187</td>
+    <td>5087</td>
+    <td>0.523 &plusmn 0.010</td>
+    <td>-</td>
+    <td>-</td>
+    <td>38.2</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>4, A</td>
+  </tr>
+  
+ <tr style="border-top: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>15043</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56549.0847</td>
+    <td>56549.0898</td>
+    <td>447</td>
+    <td>0.17 &plusmn 0.04</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4, A</td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>15043</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56549.0898</td>
+    <td>56549.0938</td>
+    <td>341</td>
+    <td>0.48 &plusmn 0.11</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4, A</td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>15043</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56549.0938</td>
+    <td>56549.1069</td>
+    <td>1129</td>
+    <td>0.87 &plusmn 0.07</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4, A</td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>15043</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56549.1069</td>
+    <td>56549.1096</td>
+    <td>235</td>
+    <td>0.43 &plusmn 0.19</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4, A</td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>15043</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56549.1096</td>
+    <td>56549.123</td>
+    <td>1160</td>
+    <td>0.82 &plusmn 0.04</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4, A</td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>15043</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56549.123</td>
+    <td>56549.1333</td>
+    <td>886</td>
+    <td>0.39 &plusmn 0.03</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4, A</td>
+  </tr>
+
+ <tr style="border-bottom: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>15043</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56549.1333</td>
+    <td>56549.1488</td>
+    <td>1339</td>
+    <td>0.12 &plusmn 0.02</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>1111.3</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4, A</td>
+  </tr>
+ 
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14944</td>
+    <td>2013-09-20</td>
+    <td>ACIS-S3 1/8th</td>
+    <td>20.1</td>
+    <td>-</td>
+    <td>56555.4619</td>
+    <td>56555.4855</td>
+    <td>2032</td>
+    <td>0.022 &plusmn 0.008</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>6.7</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>14943</td>
+    <td>2013-10-17</td>
+    <td>ACIS-S3 1/8th</td>
+    <td>18.2</td>
+    <td>-</td>
+    <td>56582.6692</td>
+    <td>56582.6832</td>
+    <td>1212</td>
+    <td>0.022 &plusmn 0.008</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>3.7</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>15045</td>
     <td>2013-10-28</td>
     <td>ACIS-S3 1/8th</td>
@@ -1147,12 +5574,59 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.033 &plusmn 0.004</td>
     <td>0.040 &plusmn 0.002</td>
     <td>4.31</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/Post-XVP/15045_SgrA_2-8keV_wcs_evt.fits" download>15045SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/Post-XVP/PostXVP_15045-start-1stevent-GoodBins.pdf"download>15045 light curve</a></td>
     <td>4</td>
   </tr>
+
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>15045</td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td>8.7 &plusmn 0.5</td>
+    <td>56593.675</td>
+    <td>56593.700</td>
+    <td>2238</td>
+    <td>0.023 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>3.95</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>4</td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>15045</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56593.675</td>
+    <td>56593.7017</td>
+    <td>2300</td>
+    <td>0.033 &plusmn 0.008</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>12.3</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
+    <td>15045</td>
     <td></td>
     <td></td>
     <td></td>
@@ -1165,9 +5639,56 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>1.63</td>
     <td></td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td>4</td>
   </tr>
+
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>15045</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56593.830</td>
+    <td>56593.840</td>
+    <td>886</td>
+    <td>0.021 &plusmn 0.016</td>
+    <td>-</td>
+    <td>-</td>
+    <td>3.90</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>4</td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>15045</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56593.831</td>
+    <td>56593.842</td>
+    <td>947</td>
+    <td>0.031 &plusmn 0.015</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>4.8</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>16508</td>
     <td>2014-02-21</td>
     <td>ACIS-S3 1/8th</td>
@@ -1179,11 +5700,37 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.027 &plusmn 0.004</td>
     <td>0.037 &plusmn 0.002</td>
     <td>3.02</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/Post-XVP/16508_SgrA_2-8keV_wcs_evt.fits" download>16508SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/Post-XVP/PostXVP_16508-start-1stevent-GoodBins.pdf"download>16508 light curve</a></td>
     <td>1</td>
   </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>16508</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56710.0238</td>
+    <td>56710.049</td>
+    <td>2173</td>
+    <td>0.024 &plusmn 0.006</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>8.6</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>1</td>
+  </tr>  
+  
   <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>16217</td>
     <td>2014-08-30</td>
     <td>ACIS-S3 1/8th</td>
@@ -1195,11 +5742,37 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.019 &plusmn 0.002</td>
     <td>0.033 &plusmn 0.002</td>
     <td>5.07</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/Post-XVP/16217_SgrA_2-8keV_wcs_evt.fits" download>16217SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/Post-XVP/PostXVP_16217-start-1stevent-GoodBins.pdf"download>16217 light curve</a></td>
     <td>1</td>
   </tr>
+  
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>16217</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56899.4921</td>
+    <td>56899.546</td>
+    <td>4661</td>
+    <td>0.020 &plusmn 0.004</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>13.6</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>1</td>
+  </tr>
+  
   <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>16218</td>
     <td>2014-10-20</td>
     <td>ACIS-S3 1/8th</td>
@@ -1211,11 +5784,163 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.138 &plusmn 0.005</td>
     <td>0.47 &plusmn 0.03</td>
     <td>62.6</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/Post-XVP/16218_SgrA_2-8keV_wcs_evt.fits" download>16218SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/Post-XVP/PostXVP_16218-start-1stevent-GoodBins.pdf"download>16218 light curve</a></td>
     <td>4.bm</td>
   </tr>
+
   <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>16218</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>6.1 &plusmn 0.6</td>
+    <td>56950.557</td>
+    <td>56950.629</td>
+    <td>6201</td>
+    <td>0.127 &plusmn 0.088</td>
+    <td>-</td>
+    <td>-</td>
+    <td>25.7</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>4.bm</td>
+  </tr>
+  
+ <tr style="border-top: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>16218</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56950.555</td>
+    <td>56950.5683</td>
+    <td>1145</td>
+    <td>0.062 &plusmn 0.014</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.bm</td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>16218</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56950.5683</td>
+    <td>56950.5725</td>
+    <td>369</td>
+    <td>0.17 &plusmn 0.08</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.bm</td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>16218</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56950.5725</td>
+    <td>56950.5822</td>
+    <td>831</td>
+    <td>0.46 &plusmn 0.07</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.bm</td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>16218</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56950.5822</td>
+    <td>56950.5898</td>
+    <td>660</td>
+    <td>0.27 &plusmn 0.07</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b></b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.bm</td>
+  </tr>
+
+ <tr style="border-bottom: 1px dotted red">
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>16218</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56950.5898</td>
+    <td>56950.5935</td>
+    <td>314</td>
+    <td>0.10 &plusmn 0.05</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>239.8</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.bm</td>
+  </tr>
+
+ <tr>
+    <td><font color="red">Ponti et al. (2015)</font></td>
+    <td>16218</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>56950.6187</td>
+    <td>56950.6295</td>
+    <td>933</td>
+    <td>0.046 &plusmn 0.016</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td><b>8.4</b></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>4.bm</td>
+  </tr>
+  
+  <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>16963</td>
     <td>2015-02-13</td>
     <td>ACIS-S3 1/8th</td>
@@ -1227,11 +5952,37 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.044 &plusmn 0.007</td>
     <td>0.053 &plusmn 0.003</td>
     <td>2.51</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/Post-XVP/16963_SgrA_2-8keV_wcs_evt.fits" download>16963SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/Post-XVP/PostXVP_16963-start-1stevent-GoodBins.pdf"download>16963 light curve</a></td>
     <td>2</td>
   </tr>
+  
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>16963</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>5.8 &plusmn 0.5</td>
+    <td>57066.252</td>
+    <td>57066.262</td>
+    <td>812</td>
+    <td>0.033 &plusmn 0.066</td>
+    <td>-</td>
+    <td>-</td>
+    <td>6.86</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>2</td>
+  </tr>
+  
   <tr style="border-bottom: 1px solid">
+    <td>Bouffard et al. (2019)</td>
     <td>16966</td>
     <td>2015-05-14</td>
     <td>ACIS-S3 1/8th</td>
@@ -1243,11 +5994,79 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.054 &plusmn 0.004</td>
     <td>0.130 &plusmn 0.008</td>
     <td>11.14</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/Post-XVP/16966_SgrA_2-8keV_wcs_evt.fits" download>16966SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/Post-XVP/PostXVP_16966-start-1stevent-GoodBins.pdf"download>16966 light curve</a></td>
     <td>2</td>
   </tr>
-  <tr style="border-top: 1px solid">
+  
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>16966</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>3.4 &plusmn 0.4</td>
+    <td>57156.501</td>
+    <td>57156.537</td>
+    <td>3119</td>
+    <td>0.052 &plusmn 0.007</td>
+    <td>-</td>
+    <td>-</td>
+    <td>6.44</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td>2</td>
+  </tr>
+
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>17857</td>
+    <td>2015-08-11</td>
+    <td>HETG/ACIS-S3</td>
+    <td>120.0</td>
+    <td>3.7 &plusmn 0.2</td>
+    <td>57246.423</td>
+    <td>57246.493</td>
+    <td>6047</td>
+    <td>0.039 &plusmn 0.003</td>
+    <td>-</td>
+    <td>-</td>
+    <td>6.44</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><font color="green">Mossoux et al. (2017)</font></td>
+    <td>16964</td>
+    <td>2015-10-21</td>
+    <td>ACIS-S3 1/8th</td>
+    <td>22.6</td>
+    <td>5.0 &plusmn 0.4</td>
+    <td>57316.556</td>
+    <td>57316.557</td>
+    <td>136</td>
+    <td>0.039 &plusmn 0.017</td>
+    <td>-</td>
+    <td>-</td>
+    <td>5.07</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  
+  <tr style="border-top: 4px solid">
+    <td>Bouffard et al. (2019)</td>
     <td>18731</td>
     <td>2016-07-12</td>
     <td>ACIS-S3 1/8th</td>
@@ -1259,11 +6078,15 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.036 &plusmn 0.006</td>
     <td>0.060 &plusmn 0.004</td>
     <td>2.06</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/Post-XVP/18731_SgrA_2-8keV_wcs_evt.fits" download>18731SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/Post-XVP/PostXVP_18731-start-1stevent-GoodBins.pdf"download>18731 light curve</a></td>
     <td>0</td>
   </tr>
   <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>18732</td>
     <td>2016-07-18</td>
     <td>ACIS-S3 1/8th</td>
@@ -1275,11 +6098,15 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.022 &plusmn 0.003</td>
     <td>0.040 &plusmn 0.002</td>
     <td>3.36</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/Post-XVP/18732_SgrA_2-8keV_wcs_evt.fits" download>18732SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/Post-XVP/PostXVP_18732-start-1stevent-GoodBins.pdf"download>18732 light curve</a></td>
     <td>0</td>
   </tr>
   <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>20041</td>
     <td>2017-04-11</td>
     <td>ACIS-S3 1/8th</td>
@@ -1291,11 +6118,15 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.103 &plusmn 0.007</td>
     <td>0.137 &plusmn 0.008</td>
     <td>16.70</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/Post-XVP/20041_SgrA_2-8keV_wcs_evt.fits" download>20041SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/Post-XVP/PostXVP_20041-start-1stevent-GoodBins.pdf"download>20041 light curve</a></td>
     <td>0</td>
   </tr>
   <tr>
+    <td>Bouffard et al. (2019)</td>
     <td>19703</td>
     <td>2017-07-15</td>
     <td>ACIS-S3 1/8th</td>
@@ -1307,12 +6138,16 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.015 &plusmn 0.002</td>
     <td>0.023 &plusmn 0.001</td>
     <td>3.40</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/Post-XVP/19703_SgrA_2-8keV_wcs_evt.fits" download>19703SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/Post-XVP/PostXVP_19703-start-1stevent-GoodBins.pdf"download>19703 light curve</a></td>
     <td>0</td>
   </tr>
   <tr>
-    <td></td>
+    <td>Bouffard et al. (2019)</td>
+    <td>19703</td>
     <td></td>
     <td></td>
     <td></td>
@@ -1325,9 +6160,13 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>2.66</td>
     <td></td>
     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td>0</td>
   </tr>
   <tr style="border-bottom: 1px solid">
+    <td>Bouffard et al. (2019)</td>
     <td>20346</td>
     <td>2018-04-24</td>
     <td>ACIS-S3 1/8th</td>
@@ -1339,28 +6178,34 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>0.118 &plusmn 0.006</td>
     <td>0.24 &plusmn 0.01</td>
     <td>29.87</td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Fits/Chandra/Post-XVP/20346_SgrA_2-8keV_wcs_evt.fits" download>20346SgrA.fits</a></td>
     <td><a href="https://github.com/Elie23/FlareDatabase/raw/master/Plots/Chandra/Post-XVP/PostXVP_20346-start-1stevent-GoodBins.pdf"download>20346 light curve</a></td>
     <td>0</td>
   </tr>
 
 </table>
-The exposure is the total lenght of the blocks. The flare mean cout rates are pile-up corrected but not quiescence-subtracted and we indicate Poisson error bars. The energies are from 2-10 keV (not 2-8 keV like the mean count rates), are pile-up corrected and quiescence-subtracted. Horizontal lines are used to isolate the XVP observations and the most recent observations (from 2016 and on) which were not available to previous studies. 
-<br />*: Peak count rates are raw measurements and may be inacurate for short flares (duration less than or comparable to the bin size of 300s)
+The exposure is the total lenght of the blocks. The flare mean cout rates are pile-up corrected but not quiescence-subtracted (see *** below) and we indicate Poisson error bars. The energies are from 2-10 keV (not 2-8 keV like the mean count rates), are pile-up corrected and quiescence-subtracted. Reported flux values from <font color="blue">Neilsen et al. (2013)</font> are absorbed values from 2-8 keV and values from <font color="green">Mossoux et al. (2017)</font> are unabsorbed values from 2-10 keV. Fluence values from <font color="red">Ponti et al. (2015)</font> are absorbed values from 2-10 keV (we report only the values from their flares, not of each of their block) and values from <font color="blue">Neilsen et al. (2013)</font> are in counts from 2-8 keV obtained from their Gaussian fitting method. Luminosities from <font color="blue">Neilsen et al. (2013)</font> are unabsorbed from 2-10 keV. Horizontal lines are used to isolate the XVP observations and the most recent observations (from 2016 and on) which were not available to previous studies. Please note that flares reported here before 2012 are not in Bouffard et al. (2019) but were obtained by the same method.
+<br />*: Every author except <font color="green">Mossoux et al. (2017)</font> use MJD units. <font color="green">Mossoux et al. (2017)</font> use hh:mm:ss since the beggining of the observing day in UT.
+<br />**: Bouffard et al. (2019) report the pile-up corrected flare mean count rates. <font color="green">Mossoux et al. (2017)</font> report the raw flare mean count rate minus the quiescence rate. <font color="red">Ponti et al. (2015)</font> report the raw observed count rates of each flaring block.
+<br />***: For Bouffard et al. (2019), peak count rates are raw measurements and may be inacurate for short flares (duration less than or comparable to the bin size of 300s). <font color="blue">Neilsen et al. (2013)</font> performed Gaussian fitting on the 2-8 keV 300s bin light curves to obtain their results.
+
 <br />Flags:
 <br />0: Flare found by Bouffard et al. (2019) only.
-<br />1: Flare found by Bouffard et al. (2019) and Ponti et al. (2015).
-<br />2: Flare found by Bouffard et al. (2019) and Mossoux et al. (2017).
-<br />3: Flare found by Bouffard et al. (2019) and Neilsen et al. (2013).
-<br />4: Flare found by Bouffard et al. (2019), Ponti et al. (2015) and Mossoux et al. (2017).
-<br />5: Flare found by Bouffard et al. (2019), Ponti et al. (2015) and Neilsen et al. (2013).
-<br />6: Flare found by Bouffard et al. (2019), Mossoux et al. (2017) and Neilsen et al. (2013).
-<br />7: Flare found by Bouffard et al. (2019), Mossoux et al. (2017), Neilsen et al. (2013) and Ponti et al. (2015).
+<br />1: Flare found by Bouffard et al. (2019) and <font color="red">Ponti et al. (2015)</font>.
+<br />2: Flare found by Bouffard et al. (2019) and <font color="green">Mossoux et al. (2017)</font>.
+<br />3: Flare found by Bouffard et al. (2019) and <font color="blue">Neilsen et al. (2013)</font>.
+<br />4: Flare found by Bouffard et al. (2019), <font color="red">Ponti et al. (2015)</font> and <font color="green">Mossoux et al. (2017)</font>.
+<br />5: Flare found by Bouffard et al. (2019), <font color="red">Ponti et al. (2015)</font> and <font color="blue">Neilsen et al. (2013)</font>.
+<br />6: Flare found by Bouffard et al. (2019), <font color="green">Mossoux et al. (2017)</font> and <font color="blue">Neilsen et al. (2013)</font>.
+<br />7: Flare found by Bouffard et al. (2019), <font color="green">Mossoux et al. (2017)</font>, <font color="blue">Neilsen et al. (2013)</font> and <font color="red">Ponti et al. (2015)</font>.
 <br />A: Flare heavily piled up.
-<br />.m: Mossoux et al. (2017) report these 2 flares as 1.
-<br />.p: Ponti et al. (2015) report these 2 flares as 1.
+<br />.m: <font color="green">Mossoux et al. (2017)</font> report these 2 flares as 1.
+<br />.p: <font color="red">Ponti et al. (2015)</font> report these 2 flares as 1.
 <br />.b: Bouffard et al. (2019) report these 2 flares as 1.
-<br />.bm: Bouffard et al. (2019) and Mossoux et al. (2017) report these 2 flares as 1.
+<br />.bm: Bouffard et al. (2019) and <font color="green">Mossoux et al. (2017)</font> report these 2 flares as 1.
 </body>
 
 <script>
@@ -1382,7 +6227,30 @@ function myFunction() {
     }       
   }
 }
+
+function myFunction2() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("mylist");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
 </script>
 
+<style>
+.supsub {position: absolute}
+.subscript {display:block; position:relative; left:2px; top: -5px}
+.superscript {display:block; position:relative; left:2px; top: -5px}
+</style>
 </html>
 
