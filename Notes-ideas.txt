@@ -1,6 +1,0 @@
-How to make it such that others can add their own flares for the same observations ???
-
-Ideas:
-1- Make different html tables (one for each author). Not sure about the light curves and spectra files though
-2- Add dropdowns at each ObsID (each author would have their entry) ? Problems: Not every author reports the same information about their flares... Some columns would exist only for some authors and some columns would be empty for some authors
-3- Add a dropdown on the top of the table to choose which author's results to display. <-- Sounds the best to me
