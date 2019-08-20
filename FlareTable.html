@@ -17,21 +17,23 @@ td, th {
 </style>
 </head>
 <body>
-Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> repository to see all the event files and light curves, including those from observations whihout flares. We have observations from 2000 up to 2018. We also provide spectra files for each observation. The following dropdown allows to select flares from specific works: <select id="mylist" onchange="myFunction2()" class='form-control'>
+Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> repository to see all the event files and light curves, including those from observations whihout flares. We have observations from 2000 up to 2018. We also provide spectra files for each observation. 
+
+<!--The following dropdown allows to select flares from specific works: <select id="mylist" onchange="myFunction2()" class='form-control'>
 <option>Bouffard</option>
 <option>Neilsen</option>
 <option>Ponti</option>
 <option>Mossoux</option>
 </select>
-
-<br />Please note that flares before 2012 reported to be from Bouffard et al. (2019) are actually not in that paper; they were obtained via the same method, however. All the included files are from these authors as well, such that if a flare was reported by a different author, the files are likely not on the github repository (this is subject to change). 
-<br />Different authors may have reduced the data differently and used different methods to detect/characterize flares.
+-->
+<br />Please note that flares before 2012 reported to be from Bouffard et al. (2019) are actually not in that paper; they were obtained via the same method, however. All the included files are from these authors as well.
+<br />Different authors may have reduced the data differently and used different methods to detect/characterize flares. Please refer to their paper for the details.
 <br />Different authors may report different flare properties, such that some columns are used only by some authors.
 <br /><font color="red">Ponti et al. (2015)</font> report values for each flare blocks. In an effort to make it clearer in this table, each flare reported by these authors made of multiple blocks is isolated by red dotted lines. These authors also used 0th order events only in gratings observations whereas the other authors used 0th + 1st order counts.
 
 <h2>Sgr A* Flare Table</h2>
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for ObsID.." title="Type in a ObsID" align="right">
+Search the Table: <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for ObsID.." title="Type in a ObsID" align="right">
 
 
 <table id="myTable">
@@ -42,11 +44,11 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <th>Instrument mode</th>
     <th>Exposure</th>
     <th>Quiescent count rate</th>
-    <th>Fstart*</th>
-    <th>Fend*</th>
+    <th>Fstart</th>
+    <th>Fend</th>
     <th>Duration</th>
-    <th>Count rate**</th>
-    <th>Peak count rate***</th>
+    <th>Count rate*</th>
+    <th>Peak count rate**</th>
     <th>Emitted energy</th> 
     <th>Flux</th>
     <th>Fluence</th>
@@ -2504,7 +2506,7 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>56059.044</td>
     <td>3250</td>
     <td>-</td>
-    <td>0.017 <span class='supsub'><sup class='superscript'>+0.010</sup><sub class='subscript'>-0.007</sub></span></td>
+    <td>0.017<span class='supsub'><sup class='superscript'>+0.010</sup><sub class='subscript'>-0.007</sub></span></td>
     <td>-</td>
     <td>0.6</td>
     <td>33<span class='supsub'><sup class='superscript'>+15</sup><sub class='subscript'>-11</sub></span></td>
@@ -2931,7 +2933,7 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>-</td>
     <td>-</td>
     <td>-</td>
-    <td>7</td>
+    <td></td>
   </tr>
 
   <tr>
@@ -5389,7 +5391,7 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
     <td>-</td>
     <td>-</td>
     <td>-</td>
-    <td>4, A</td>
+    <td>A</td>
   </tr>
 
  <tr>
@@ -6187,10 +6189,9 @@ Go to our <a href="https://github.com/Elie23/FlareDatabase/"> Github</a> reposit
   </tr>
 
 </table>
-The exposure is the total lenght of the blocks. The flare mean cout rates are pile-up corrected but not quiescence-subtracted (see *** below) and we indicate Poisson error bars. The energies are from 2-10 keV (not 2-8 keV like the mean count rates), are pile-up corrected and quiescence-subtracted. Reported flux values from <font color="blue">Neilsen et al. (2013)</font> are absorbed values from 2-8 keV and values from <font color="green">Mossoux et al. (2017)</font> are unabsorbed values from 2-10 keV. Fluence values from <font color="red">Ponti et al. (2015)</font> are absorbed values from 2-10 keV (we report only the values from their flares, not of each of their block) and values from <font color="blue">Neilsen et al. (2013)</font> are in counts from 2-8 keV obtained from their Gaussian fitting method. Luminosities from <font color="blue">Neilsen et al. (2013)</font> are unabsorbed from 2-10 keV. Horizontal lines are used to isolate the XVP observations and the most recent observations (from 2016 and on) which were not available to previous studies. Please note that flares reported here before 2012 are not in Bouffard et al. (2019) but were obtained by the same method.
-<br />*: Every author except <font color="green">Mossoux et al. (2017)</font> use MJD units. <font color="green">Mossoux et al. (2017)</font> use hh:mm:ss since the beggining of the observing day in UT.
-<br />**: Bouffard et al. (2019) report the pile-up corrected flare mean count rates. <font color="green">Mossoux et al. (2017)</font> report the raw flare mean count rate minus the quiescence rate. <font color="red">Ponti et al. (2015)</font> report the raw observed count rates of each flaring block.
-<br />***: For Bouffard et al. (2019), peak count rates are raw measurements and may be inacurate for short flares (duration less than or comparable to the bin size of 300s). <font color="blue">Neilsen et al. (2013)</font> performed Gaussian fitting on the 2-8 keV 300s bin light curves to obtain their results.
+The exposure is the total lenght of the blocks. The flare mean cout rates are pile-up corrected but not quiescence-subtracted (see ** below) and we indicate Poisson error bars. The energies are from 2-10 keV (not 2-8 keV like the mean count rates), are pile-up corrected and quiescence-subtracted. Reported flux values from <font color="blue">Neilsen et al. (2013)</font> are absorbed values from 2-8 keV and values from <font color="green">Mossoux et al. (2017)</font> are unabsorbed values from 2-10 keV. Fluence values from <font color="red">Ponti et al. (2015)</font> are absorbed values from 2-10 keV (we report only the values from their flares, not of each of their block) and values from <font color="blue">Neilsen et al. (2013)</font> are in counts from 2-8 keV obtained from their Gaussian fitting method. Luminosities from <font color="blue">Neilsen et al. (2013)</font> are unabsorbed from 2-10 keV. Horizontal thick black lines are used to isolate the ACIS-I, the XVP observations and the most recent observations (from 2016 and on) which were not available to previous studies. Please note that flares reported here before 2012 are not in Bouffard et al. (2019) but were obtained by the same method.
+<br />*: Bouffard et al. (2019) report the pile-up corrected flare mean count rates. <font color="green">Mossoux et al. (2017)</font> report the raw flare mean count rate minus the quiescence rate. <font color="red">Ponti et al. (2015)</font> report the raw observed count rates of each flaring block.
+<br />**: For Bouffard et al. (2019), peak count rates are raw measurements and may be inacurate for short flares (duration less than or comparable to the bin size of 300s). <font color="blue">Neilsen et al. (2013)</font> performed Gaussian fitting on the 2-8 keV 300s bin light curves to obtain their results.
 
 <br />Flags:
 <br />A: Flare heavily piled up.
@@ -6208,7 +6209,7 @@ function myFunction() {
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
+    td = tr[i].getElementsByTagName("td")[1];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
